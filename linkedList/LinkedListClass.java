@@ -1,4 +1,5 @@
 package linkedList;
+
 //https://www.youtube.com/watch?v=dBBm5pltWe4&list=PLt4nG7RVVk1gDMcCZkpjOxZS4XMro29DU
 class Node {
 	int data;
@@ -75,53 +76,37 @@ class Linked {
 
 	Node insertElementAtPosition(Node n, int i, int pos) {
 
-		if (n == null && pos > 1) {
-			System.out.println("position is greater than the Linked List");
-			return null;
-		}
-		if (pos < 0) {
-			System.out.println("Position can not be negative");
-			return null;
-		}
 		if (n == null && pos == 1) {
 			return getnewNode(i);
 		}
+		if (pos == 1) {
+			Node temp = getnewNode(i);
+			temp.next = n.next;
+			n.next = temp;
 
-		while (pos > 1) {
-			pos--;
-			n = n.next;
+			return n;
 		}
 
-		Node temp = n.next;
-		Node newNode = getnewNode(i);
-		n.next = newNode;
-		newNode.next = temp;
+		insertElementAtPosition(n.next, i, pos - 1);
 
 		return n;
 	}
 
 	Node deleteLastNode(Node n) {
-		Node head = n;
 		Node oneBefore = null;
 		if (n == null) {
-			System.out.println("Linked list is empty");
-			return null;
+			System.out.println("LL is empty");
 		}
-
+		if (n.next == null) {
+			oneBefore = n;
+		}
 		while (n.next != null) {
 			oneBefore = n;
 			n = n.next;
 		}
 
-		if (oneBefore == null) {
-			n = null;
-			return n;
-		} else {
-			oneBefore.next = null;
-
-		}
-
-		return head;
+		oneBefore.next = null;
+		return oneBefore;
 
 	}
 
@@ -168,29 +153,28 @@ class Linked {
 		return count;
 	}
 
-	Node rotateLinkedList(Node n, int k) {
+	Node rotateLinkedListClockWise(Node n, int k) {
 		Node head = n;
-		Node oneBefore = null;
-		while (n.next != null) {
-			oneBefore = n;
-			n = n.next;
+		int size = getSize(n);
+		Node tmp = n;
+		int i = 1;
+		while (i < size - k) {
+			i++;
+			tmp = tmp.next;
 		}
 
-		n.next = head;
-		oneBefore.next = null;
-		k--;
-		if (k > 0) {
-			rotateLinkedList(n, k);
+		Node tmp2 = tmp;
+		tmp = tmp.next;
+		Node newHead = tmp;
+		while (tmp.next != null) {
+			tmp = tmp.next;
 		}
+		tmp2.next = null;
+		tmp.next = head;
 
-		return n;
+		return newHead;
 
 	}
-	// 12 14 16 18 20
-	// temp = n.next
-	// n.next = oneBefore
-
-	// n=n.next
 
 	Node reverseList(Node n) {
 		if (n == null || n.next == null) {
@@ -205,16 +189,20 @@ class Linked {
 		return temp;
 	}
 
-	Node reverseListItr(Node curr) {
-		if(curr == null) {
-			return null;
+	Node reverseListItr(Node n) {
+		Node head = n;
+		Node temp1=null;
+		Node temp =null;
+		while(temp.next.next != null) {
+			temp = n.next.next;
+			temp1 = n.next;
+			temp1.next = n;
+			temp.next = temp1;
+			n = null;
 		}
 		
-		reverseListItr(curr.next);
-		System.out.println(curr.data);
-
-		return curr;
-
+		temp.next = temp1;
+		return n;
 	}
 
 	int getMiddleNode(Node n) {
@@ -269,7 +257,7 @@ class Linked {
 
 		while (h1.next == null && h2.next == null) {
 
-		}
+		}	
 
 		return null;
 	}

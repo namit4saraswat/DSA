@@ -3,6 +3,7 @@ package linkedList;
 public class UnionOfLinkedList {
 
 	public static void main(String[] args) {
+		LinkedListClass obj = new LinkedListClass();
 		
 		Node head1 = null;
 		Node head2 = null;
@@ -20,7 +21,7 @@ public class UnionOfLinkedList {
 		
 		
 		
-		
+		//obj.getUnion(head1, head2);
 
 	}
 	

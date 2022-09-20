@@ -4,36 +4,27 @@ public class LCSTwoString {
 
 	public static void main(String[] args) {
 		LCSTwoString a = new LCSTwoString();
-		String text1 = "abcde";
-		String text2 = "ace";
-		a.longestSubSequence(text1, text2, 0, 0);
-
+		String text1 = "yellow";
+		String text2 = "yellowuuuu";
+		System.out.println(a.longestSubSequence2(text1, text2));
+		
 	}
 
 	int count = 0;
 
-	void longestSubSequence(String text1, String text2, int i, int j) {
-
-		if (i >= text1.length() || j >= text2.length()) {
-			return;
+	int longestSubSequence2(String m, String n) {
+		if (m.length() == 0 || n.length() == 0) {
+			return count;
 		}
 
-		if (text1.charAt(i) == text2.charAt(j)) {
-			i++;
-			j++;
-			longestSubSequence(text1, text2, i, j);
-			count++;
+		if (m.charAt(m.length() - 1) == n.charAt(n.length() - 1)) {
+			return 1 + longestSubSequence2(m.substring(0, m.length() - 1), n.substring(0, n.length() - 1));
+
 		} else {
-			i++;
-			longestSubSequence(text1, text2, i, j);
-			i--;
-			j++;
-			longestSubSequence(text1, text2, i, j);
+			return Math.max(longestSubSequence2(m, n.substring(0, n.length() - 1)),
+					longestSubSequence2(m.substring(0, m.length() - 1), n));
 		}
-
-		System.out.println(count);
 
 	}
-	
-	
+
 }

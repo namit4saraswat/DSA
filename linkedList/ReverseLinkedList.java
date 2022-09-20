@@ -12,7 +12,10 @@ public class ReverseLinkedList {
 		head = a.insert(18, head);
 		head = a.insert(20, head);
 		
-		a.reverseListItr(head);
+		a.printList(head);
+		head = a.reverseListItr(head);
+		System.out.println();
+		a.printList(head);
 
 	}
 

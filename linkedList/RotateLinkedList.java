@@ -16,7 +16,7 @@ public class RotateLinkedList {
 		//after rotating by 2
 		//18 20 12 14 16
 		a.printList(head);
-		head = a.rotateLinkedList(head, 2);
+		head = a.rotateLinkedListClockWise(head, 2);
 		System.out.println();
 		a.printList(head);
 		

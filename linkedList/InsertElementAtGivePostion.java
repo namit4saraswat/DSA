@@ -13,7 +13,7 @@ public class InsertElementAtGivePostion {
 
 		a.printList(head);
 		
-		head = a.insertElementAtPosition(head, 20, 0);
+		head = a.insertElementAtPosition(head, 20, 2);
 		System.out.println();	
 		a.printList(head);
 		
