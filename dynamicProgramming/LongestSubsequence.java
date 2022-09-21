@@ -1,16 +1,21 @@
 package dynamicProgramming;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class LongestSubsequence {
 
-	static String text1 = "yellow";
-	static String text2 = "yellowuuuu";
+	static String text1 = "yeasdsdasdasdasdasdzxcxvcbcvbszxccsdllow";
+	static String text2 = "yellowudsfsgdfgdfggduuu";
 	int[][] t = new int[text1.length() + 1][text2.length() + 1];
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+		System.out.println(new SimpleDateFormat("HH:mm:ss.SSS").SECOND_FIELD);
 		LongestSubsequence a = new LongestSubsequence();
-
 		System.out.println(a.longestSubSequenceDP(text1, text2));
-
+		long time2 =new SimpleDateFormat().parse(new SimpleDateFormat().format(Calendar.getInstance().getTime())).getTime() ;
+		System.out.println(new SimpleDateFormat("HH:mm:ss.SSS").SECOND_FIELD);
 	}
 
 	int count = 0;

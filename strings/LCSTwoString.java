@@ -1,13 +1,18 @@
 package strings;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class LCSTwoString {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+		System.out.println(new SimpleDateFormat("HH:mm:ss.SSS").SECOND_FIELD);
 		LCSTwoString a = new LCSTwoString();
-		String text1 = "yellow";
-		String text2 = "yellowuuuu";
+		String text1 = "yeasdszxccsdllow";
+		String text2 = "yellowudsfsgdfgdfggduuu";
 		System.out.println(a.longestSubSequence2(text1, text2));
-		
+		System.out.println(new SimpleDateFormat("HH:mm:ss.SSS").SECOND_FIELD);
 	}
 
 	int count = 0;
